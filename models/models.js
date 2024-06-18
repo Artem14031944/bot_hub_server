@@ -7,6 +7,8 @@ const User = sequelize.define('user', {
     username: { type: DataTypes.STRING(30) },
     password: { type: DataTypes.STRING(120) },
     role: { type: DataTypes.STRING(10), defaultValue: "USER" },
+    is_activated: { type: DataTypes.INTEGER, defaultValue: 0 },
+    activation_link: { type: DataTypes.STRING(150) },
 });
 
 const Book = sequelize.define('book', {

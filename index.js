@@ -1,6 +1,8 @@
 import 'dotenv/config';
-import cookieParser from 'cookie-parser';
+import errorHandler from './middleware/ErrorHandingMiddleware.js'
 import { User, Book, Token } from './models/models.js'
+import cookieParser from 'cookie-parser';
+import router from './routers/index.js'
 import sequelise from './db/db.js';
 import express from 'express';
 import cors from 'cors';
@@ -14,6 +16,8 @@ app.use(cors({
 }));
 app.use(cookieParser());
 app.use(express.json());
+app.use('/api', router);
+app.use(errorHandler);
 
 const startApp = async () => {
     try {
