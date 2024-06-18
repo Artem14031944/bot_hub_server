@@ -1,4 +1,4 @@
-import TokenService from '../../service/TokenService.js';
+import TokenService from '../../services/TokenService.js';
 import ApiError from '../../error/ApiError.js';
 
 export default function(req, res, next) {
@@ -16,10 +16,6 @@ export default function(req, res, next) {
         const userData = TokenService.validateAccessToken(accessToken);
         if (!userData) {
             return next(ApiError.unauthorizedError());
-        };
-
-        if (userData.role !== 'ADMIN') {
-            return next(ApiError.forbidden('Нет доступа'));
         };
 
         req.user = userData;

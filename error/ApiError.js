@@ -21,8 +21,8 @@ class ApiError extends Error {
         return new ApiError(401, 'Пользователь не авторизован');
     };
 
-    static invalidMailbox() {
-        return new ApiError(550, 'Такой почты не существует');
+    static invalidMailbox(message) {
+        return new ApiError(550, message);
     };
 };
 

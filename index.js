@@ -23,6 +23,9 @@ const startApp = async () => {
     try {
         await sequelise.authenticate();
         await sequelise.sync();
+        // Token.drop();
+        // Book.drop();
+        // User.drop();
         app.listen(PORT, () => console.log(`Started a ${PORT} server`));
     } catch (err) {
         console.log(err);

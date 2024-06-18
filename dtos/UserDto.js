@@ -2,13 +2,13 @@ class UserDto {
     id;
     email;
     username;
-    role;
+    is_admin;
 
     constructor(model) {
         this.id = model.id;
         this.email = model.email;
-        this.username = model.name;
-        this.role = model.role;
+        this.username = model.username;
+        this.is_admin = model.is_admin;
     };
 };
 

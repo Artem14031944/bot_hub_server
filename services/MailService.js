@@ -1,6 +1,7 @@
 import ApiError from '../error/ApiError.js';
 import nodemailer from 'nodemailer';
 
+
 class MailService {
     constructor() {
         this.transporter = nodemailer.createTransport({
@@ -15,6 +16,8 @@ class MailService {
     };
 
     async sendActivationMail(user, link) {
+        console.log(user, 'user');
+        console.log(link, 'link');
         try {
             await this.transporter.sendMail({
                 from: process.env.SMTP_USER,
@@ -24,7 +27,7 @@ class MailService {
                 html: 
                 `
                     <div>
-                        <h1>Добрый день ${user?.username}</h1>
+                        <h1>Добрый день ${user.username}</h1>
                         <p>Для активации перейдите по ссылке</p>
                         <a href="${link}">${link}</a>
                     </div>

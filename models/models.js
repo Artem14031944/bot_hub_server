@@ -4,9 +4,9 @@ import sequelize from "../db/db.js";
 const User = sequelize.define('user', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     email: { type: DataTypes.STRING(40), unique: true },
-    username: { type: DataTypes.STRING(30) },
+    username: { type: DataTypes.STRING(30), unique: true },
     password: { type: DataTypes.STRING(120) },
-    role: { type: DataTypes.STRING(10), defaultValue: "USER" },
+    is_admin: { type: DataTypes.INTEGER, defaultValue: 0 },  
     is_activated: { type: DataTypes.INTEGER, defaultValue: 0 },
     activation_link: { type: DataTypes.STRING(150) },
 });

@@ -4,7 +4,7 @@ import UserRouter from './UserRouter.js';
 
 const router = Router();
 
-router.use('/book', BookRouter);
-router.use('/user', UserRouter);
+router.use('/books', BookRouter);
+router.use('/users', UserRouter);
 
 export default router;
