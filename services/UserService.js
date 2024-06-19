@@ -7,7 +7,7 @@ import UserDto from '../dtos/UserDto.js';
 import bcrypt from 'bcrypt';
 
 class UserService {
-    async register(username, password, email) {
+    async register(username, password, email, is_admin) {
         const candidate = await User.findOne({ where: { email } });
         if (candidate) {
             throw ApiError.badRequest(`Пользователь с почтовым адресом ${email} уже есть`);
@@ -23,7 +23,7 @@ class UserService {
             throw ApiError.invalidMailbox(err.message);
         };
 
-        const user = await User.create({ username, email, password: hashPassword, activation_link, is_admin: 1 });
+        const user = await User.create({ username, email, password: hashPassword, activation_link, is_admin });
         if (!user) {
             throw ApiError.badRequest('Не удалось создать пользователь');
         }

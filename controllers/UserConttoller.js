@@ -4,8 +4,8 @@ import UserService from "../services/UserService.js";
 class UserContoller {
     async register(req, res, next) {
         try {
-            const { username, password, email } = req.body;
-            const userData = await UserService.register(username, password, email);
+            const { username, password, email, is_admin } = req.body;
+            const userData = await UserService.register(username, password, email, is_admin);
             res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true });
 
             return res.json(userData);
