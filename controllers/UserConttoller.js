@@ -1,4 +1,3 @@
-import TokenService from "../services/TokenService.js";
 import UserService from "../services/UserService.js";
 
 class UserContoller {
@@ -67,4 +66,4 @@ class UserContoller {
     };
 };
 
-export default new UserContoller()
+export default new UserContoller();

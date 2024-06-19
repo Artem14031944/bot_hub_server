@@ -84,7 +84,7 @@ class UserService {
     };
 
     async update(id, role) {
-        await User.update({ role }, { where: { id } });
+        await User.update({ is_admin: role }, { where: { id } });
         const updatedUser = this.getOne(id);
 
         return updatedUser;
